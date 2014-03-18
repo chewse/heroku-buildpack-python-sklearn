@@ -26,7 +26,7 @@ if (grep -iq -e "numpy" -e "scipy" requirements.txt) then
   puts-step "Noticed numpy/scipy. Bootstrapping prebuilt binaries."
   cd .heroku
 
-  if [ -d "${VENDORED_GIT_NAME}" ]; then
+  if [ ! -d "${VENDORED_GIT_NAME}" ]; then
     ## check whether this has happened already
     # Download and extract everything into target vendor directory.
     puts-step "Fetching repo ${VENDORED_GIT_NAME}"
